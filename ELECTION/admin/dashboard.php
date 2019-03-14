@@ -26,7 +26,7 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 			header("location:index.php?wrongUsername");
 			exit();	
 		}
-		else if($pwd != "aDmin@123")
+		else if($pwd != "Welcome")
 		{
 			header("location:index.php?wrongPassword");
 			exit();
