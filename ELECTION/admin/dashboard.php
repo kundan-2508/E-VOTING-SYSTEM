@@ -21,12 +21,12 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 	{
 		$username = trim($_POST['username']);
 		$pwd = $_POST['pwd'];
-		if($username != "admin")
+		if($username != "may i come in")
 		{
 			header("location:index.php?wrongUsername");
 			exit();	
 		}
-		else if($pwd != "Welcome")
+		else if($pwd != "Yes please")
 		{
 			header("location:index.php?wrongPassword");
 			exit();
