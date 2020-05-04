@@ -69,7 +69,7 @@ define("name", "Placement Cell Bit Sindri"); // change the website name if you w
 				<div class="col-sm-4 col-md-4"></div>
 			</div>
 			<div class="row">
-				<h1 class="top-heading">Thankyou for your contribution.</h1><br>
+				<h1 class="top-heading">Stay home, stay safe.</h1><br>
 			</div>
 		</div>
 		<br>

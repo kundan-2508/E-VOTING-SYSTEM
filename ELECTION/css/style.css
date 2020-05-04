@@ -91,6 +91,9 @@ h4.footer
 {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+.panel>.table-responsive{
+	min-height: 320px;
+}
 .panel img
 {
 	text-align: center;
