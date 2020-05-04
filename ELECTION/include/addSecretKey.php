@@ -712,20 +712,20 @@ include_once "dbh.inc.php"; // database connection
 8382011356
 );
 		
-	$len = count($key);
-	for($i=0;$i<$len;$i++)
-	{
-		$sql_add_key = "INSERT INTO secret_key (Email,Secret_code,Status)
-				VALUES ('$email[$i]','$key[$i]', '0')";
-		if(mysqli_query($conn,$sql_add_key)) 
+		$len = count($key);
+		for($i=0;$i<$len;$i++)
 		{
-			//
+			$sql_add_key = "INSERT INTO secret_key (Secret_code,Status)
+					VALUES ('$key[$i]', '0')";
+			if(mysqli_query($conn,$sql_add_key)) 
+			{
+				//
+			}
+			else
+			{
+				echo "Something went wrong";
+				exit();
+			}
 		}
-		else
-		{
-			echo "Something went wrong";
-			exit();
-		}
-	}
 		
 			

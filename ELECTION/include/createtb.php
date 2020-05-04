@@ -1,7 +1,7 @@
 <?php
 
 include_once "dbh.inc.php";
-
+/*
 $query = "CREATE TABLE branches(
 	Id SMALLINT(5) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	Branch VARCHAR(30) UNIQUE NOT NULL,
@@ -41,11 +41,10 @@ mysqli_query($conn,$query) or die("Oops! something went wrong");
 
 $query = "CREATE TABLE secret_key(
 	Id SMALLINT(5) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-	Email VARCHAR(30) UNIQUE NOT NULL,
 	Secret_code VARCHAR(30) UNIQUE NOT NULL,
 	Status ENUM ('0','1')
 )";
 
 mysqli_query($conn,$query) or die("Oops! something went wrong");
-
+*/
 ?>

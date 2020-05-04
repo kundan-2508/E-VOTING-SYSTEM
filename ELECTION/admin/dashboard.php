@@ -21,12 +21,12 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 	{
 		$username = trim($_POST['username']);
 		$pwd = $_POST['pwd'];
-		if($username != "admin")
+		if($username != "may i come in")
 		{
 			header("location:index.php?wrongUsername");
 			exit();	
 		}
-		else if($pwd != "aDmin@123")
+		else if($pwd != "Yes please")
 		{
 			header("location:index.php?wrongPassword");
 			exit();
@@ -108,6 +108,7 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 							<a href="dashboard.php"><li><i class="fa fa-book"></i> Branches</li></a>
 							<a href="leaders.php"><li><i class="fa fa-users"></i> Leaders</li></a>
 							<a href="stats.php"><li><i class="fa fa-area-chart"></i> Stats</li></a>
+							<a href=""><li><i class="fa fa-sign-out"></i> Logout</li></a>
 						</ul>
 					</div>
 				</div>
@@ -159,7 +160,6 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 								        <th>Sl No</th>
 								        <th>Branch</th>
 								        <th>Status</th>
-										<th>Edit</th>
 								      </tr>
 								    </thead>
 									<tbody>
@@ -170,17 +170,16 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 										{
 											while ($row=mysqli_fetch_assoc($result))
 											{								
-												echo '<form action="../include/editBranch.php" method = "POST" enctype="multipart/form-data"><tr>';
+												echo '<form action = "#"><tr>';
 												echo '<td>'.++$cnt.'</td>';
-												echo '<td><input type="hidden" name="branchName" value="'.$row['Branch'].'">'.$row['Branch'].'</input></td>';
+												echo '<td>'.$row['Branch'].'</td>';
 												echo '<td>';
-												echo '<select class = "form-control" name="branchStatus">';
+												echo '<select class = "form-control">';
 												echo '<option value = "Enabled"';?><?php if($row['Status']=="Enabled") echo 'selected="selected"'; ?><?php echo '>Enabled</option>';
 												echo '<option value = "Disabled"';?><?php if($row['Status']=="Disabled") echo 'selected="selected"'; ?><?php echo '>Disabled</option>';
 												echo '</select>';
 												echo '</td>';
-												echo '<td><input type = "submit" value = "Save" class = "btn btn-primary" name="edit-branch-btn"></td>';
-												echo '</tr></form>';
+												echo '</tr>';
 											}
 										}
 										else
@@ -191,7 +190,9 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 										mysqli_free_result($result);
 										?>
 									</tbody>
+
 								</table>
+								<input type = "submit" value = "Commit changes" class = "btn btn-primary" style = "float:right;"></form>
 							</div>
 						</div>
 				</div>
