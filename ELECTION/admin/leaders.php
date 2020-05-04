@@ -109,7 +109,6 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 							<a href="dashboard.php"><li><i class="fa fa-book"></i> Branches</li></a>
 							<a href="leaders.php"><li><i class="fa fa-users"></i> Leaders</li></a>
 							<a href="stats.php"><li><i class="fa fa-area-chart"></i> Stats</li></a>
-							<a href=""><li><i class="fa fa-sign-out"></i> Logout</li></a>
 						</ul>
 					</div>
 				</div>
@@ -178,6 +177,7 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 								        <th>Name</th>
 								        <th>Roll</th>
 								        <th>Branch</th>
+										<th>Delete</th>
 								      </tr>
 								    </thead>
 									<tbody>
@@ -188,12 +188,13 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 										{
 											while ($row=mysqli_fetch_assoc($result))
 											{								
-												echo '<form action = ""><tr>';
+												echo '<form action="../include/deleteLeader.php" method = "POST" enctype="multipart/form-data"><tr>';
 												echo '<td>'.++$cnt.'</td>';
 												echo '<td>'.$row['Name'].'</td>';
-												echo '<td>'.$row['Roll'].'</td>';
+												echo '<td><input type="hidden" name="leaderRoll" value="'.$row['Roll'].'">'.$row['Roll'].'</td>';
 												echo '<td>'.$row['Branch'].'</td>';
-												echo '</tr>';
+												echo '<td><input type="submit" value="Delete" name ="deleteLeaderBtn" class="btn btn-danger"></td>';
+												echo '</tr></form>';
 											}
 										}
 										else
@@ -206,7 +207,6 @@ if(!isset($_SESSION['username']) || !isset($_SESSION['pwd']))
 									</tbody>
 
 								</table>
-								<input type = "submit" value = "Commit changes" class = "btn btn-primary" style = "float:right;"></form>
 							</div>
 						</div>
 				</div>
